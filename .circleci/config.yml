@@ -24,6 +24,7 @@ jobs:
       - store_artifacts:
           path: test-reports/
           destination: testCircleci
+      - setup_remote_docker
       - run:
           name: Build Docker image
           command: |
