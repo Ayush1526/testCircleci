@@ -23,4 +23,4 @@ jobs:
             python3 tests.py
       - store_artifacts:
           path: test-reports/
-          destination: testCircleci
+          destination: python_app
