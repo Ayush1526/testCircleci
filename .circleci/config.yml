@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t "$DOCKER_USERNAME"/testCircleci .
+            docker build -t "$DOCKER_USERNAME"/testcircleci .
       - run:
           name: Log in to Docker Hub
           command: |
