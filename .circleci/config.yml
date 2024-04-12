@@ -24,7 +24,7 @@ jobs:
       - store_artifacts:
           path: test-reports/
           destination: testCircleci
-           - run:
+      - run:
           name: Build Docker image
           command: |
             docker build -t "$DOCKER_USERNAME"/testCircleci .
