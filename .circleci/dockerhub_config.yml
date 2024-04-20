@@ -28,12 +28,12 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t "$AWS_ACCOUNT_ID".dkr.ecr."$AWS_REGION".amazonaws.com/testcircleci .
+            docker build -t "$DOCKER_USERNAME"/testcircleci .
       - run:
-          name: Login to ECR
+          name: Log in to Docker Hub
           command: |
-            aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "$AWS_ACCOUNT_ID".dkr.ecr."$AWS_REGION".amazonaws.com
+            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - run:
-          name: Push Docker image to ECR
+          name: Push Docker image to Docker Hub
           command: |
-            docker push "$AWS_ACCOUNT_ID".dkr.ecr."$AWS_REGION".amazonaws.com/myapp:latest
+            docker push "$DOCKER_USERNAME"/testcircleci
